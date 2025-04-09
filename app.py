@@ -15,22 +15,22 @@ def create_app():
     app.register_blueprint(bookings_bp)
     app.register_blueprint(admin_bp)
 
-    # ✅ Serve React build folder
+    # Serve React build
     @app.route("/", defaults={"path": ""})
     @app.route("/<path:path>")
     def serve(path):
         root_dir = os.path.join(os.getcwd(), "build")
-        if path != "" and os.path.exists(os.path.join("build", path)):
-            return send_from_directory("build", path)
+        file_path = os.path.join(root_dir, path)
+
+        if path != "" and os.path.exists(file_path):
+            return send_from_directory(root_dir, path)
         else:
-            return send_from_directory("build", "index.html")
+            return send_from_directory(root_dir, "index.html")
 
     return app
 
 app = create_app()
 
 if __name__ == "__main__":
-    import os
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-
