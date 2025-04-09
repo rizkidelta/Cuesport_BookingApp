@@ -93,16 +93,20 @@ def remove_booking():
     db.session.commit()
     return jsonify({"message": "Booking removed successfully."})
 
-ADMIN_PASSWORD = "secret"  # 🔐 Set in .env later
+ADMIN_PASSWORD = "secret" 
 
 @admin_bp.route("/admin/login", methods=["POST"])
 def admin_login():
     data = request.json
     password = data.get("password")
 
+    print("Admin login attempt with password:", password)  # 🔍 DEBUG
+
     if password == ADMIN_PASSWORD:
+        print("✅ Password matched")  # 🔍
         return jsonify({"token": "admin-access"}), 200
     else:
+        print("❌ Invalid password")  # 🔍
         return jsonify({"message": "Invalid password"}), 401
     
 

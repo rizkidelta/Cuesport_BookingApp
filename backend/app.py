@@ -5,7 +5,7 @@ from extensions import db
 import os
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(__name__, static_folder="build", static_url_path="")
     app.config.from_object(Config)
     db.init_app(app)
     CORS(app)
@@ -15,19 +15,19 @@ def create_app():
     app.register_blueprint(bookings_bp)
     app.register_blueprint(admin_bp)
 
-    # ✅ Serve React build folder
+    # Serve React frontend
     @app.route("/", defaults={"path": ""})
     @app.route("/<path:path>")
     def serve(path):
-        root_dir = os.path.join(os.getcwd(), "build")
-        if path != "" and os.path.exists(os.path.join("build", path)):
-            return send_from_directory("build", path)
+        if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
+            return send_from_directory(app.static_folder, path)
         else:
-            return send_from_directory("build", "index.html")
+            return send_from_directory(app.static_folder, "index.html")
 
     return app
 
 app = create_app()
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5050))
+    app.run(host="0.0.0.0", port=port)
