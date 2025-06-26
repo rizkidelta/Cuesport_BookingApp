@@ -2,6 +2,10 @@
 
 This is a simple full-stack web application designed for students to book slots for cuesport recreational training sessions. Built with **React** on the frontend and **Flask** on the backend, the app allows slot booking, cancellation, and admin approval through a sleek calendar-based interface.
 
+> ⚠️ **Note**: This is a **demo application**. It is not an official live service.  
+> For demonstration purposes, you may access the admin dashboard using the default password:  
+> **admin:admin**
+
 ---
 
 ## 🚀 Features
@@ -37,7 +41,7 @@ This is a simple full-stack web application designed for students to book slots 
 
 ### 👨‍💼 For Admins
 1. Click on the `Admin` button in the top right.
-2. Enter the admin password.
+2. Enter the admin password: `admin`
 3. On the dashboard:
    - View and approve/reject bookings.
    - View and approve cancellation requests.
@@ -62,6 +66,8 @@ This is a simple full-stack web application designed for students to book slots 
 
 [https://cuesport-booking-app-4cb92a6b4bf8.herokuapp.com/](https://cuesport-booking-app-4cb92a6b4bf8.herokuapp.com/)
 
-## Contact Me
+---
 
-To report bugs please contact @whiskey83 on Telegram
+## 📬 Contact Me
+
+Telegram: [@whiskey83](https://t.me/whiskey83)
