@@ -62,7 +62,7 @@ This is a simple full-stack web application designed for students to book slots 
 
 ---
 
-## 🔗 Live Demo
+## 🔗 Live Demo (Currently Offline)
 
 [https://cuesport-booking-app-4cb92a6b4bf8.herokuapp.com/](https://cuesport-booking-app-4cb92a6b4bf8.herokuapp.com/)
 
